@@ -21,7 +21,7 @@ jobs:
           context: ./${{ matrix.service }}
           file: ./${{ matrix.service }}/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/multi-${{ matrix.service }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/v2-multi-${{ matrix.service }}
 
       - name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*'
