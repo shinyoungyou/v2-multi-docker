@@ -19,15 +19,14 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Docker build and push
-      - run: docker build -t austynyou/v2-multi-client ./client
-      - run: docker build -t austynyou/v2-multi-nginx ./nginx
-      - run: docker build -t austynyou/v2-multi-server ./server
-      - run: docker build -t austynyou/v2-multi-worker ./worker
-      
-      - run: docker push austynyou/v2-multi-client
-      - run: docker push austynyou/v2-multi-nginx
-      - run: docker push austynyou/v2-multi-server
-      - run: docker push austynyou/v2-multi-worker
+        run: docker build -t austynyou/v2-multi-client ./client
+        run: docker build -t austynyou/v2-multi-nginx ./nginx
+        run: docker build -t austynyou/v2-multi-server ./server
+        run: docker build -t austynyou/v2-multi-worker ./worker
+        run: docker push austynyou/v2-multi-client
+        run: docker push austynyou/v2-multi-nginx
+        run: docker push austynyou/v2-multi-server
+        run: docker push austynyou/v2-multi-worker
 
       - name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*'
