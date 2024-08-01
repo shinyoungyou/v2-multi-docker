@@ -1,14 +1,14 @@
 version: "3"
 services:
   client:
-    image: "austynyou/multi-client"
+    image: "austynyou/v2-multi-client"
     mem_limit: 128m
     hostname: client
 
     environment:
       - WDS_SOCKET_PORT=0
   server:
-    image: "austynyou/multi-server"
+    image: "austynyou/v2-multi-server"
     mem_limit: 128m
     hostname: api
 
@@ -21,7 +21,7 @@ services:
       - PGPASSWORD=postgres_password
       - PGPORT=5432
   worker:
-    image: "austynyou/multi-worker"
+    image: "austynyou/v2-multi-worker"
     mem_limit: 128m
     hostname: worker
 
@@ -34,7 +34,7 @@ services:
       - client
     restart: always
 
-    image: "austynyou/multi-nginx"
+    image: "austynyou/v2-multi-nginx"
     mem_limit: 128m
     hostname: nginx
     ports:
